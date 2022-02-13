@@ -23,7 +23,16 @@ namespace MessageBox.Avalonia.Views
         {
             base.OnAttachedToVisualTree(e);
             var okButton = this.FindControl<Button>("OkButton");
-            okButton.Focus();
+            var yesButton = this.FindControl<Button>("YesButton");
+            if (okButton?.IsVisible == true)
+            {
+                okButton.Focus();
+            }
+
+            if (yesButton?.IsVisible == true)
+            {
+                yesButton.Focus();
+            }
         }
 
         private void InitializeComponent()

@@ -27,6 +27,7 @@
         <KeyBinding Gesture="Ctrl+C" Command="{Binding Copy}" />
         <KeyBinding Gesture="Enter" Command="{Binding EnterClickCommand}" />
         <KeyBinding Gesture="Escape" Command="{Binding EscClickCommand}" />
+        <KeyBinding Gesture="Space" Command="{Binding EnterClickCommand}" />
     </Window.KeyBindings>
 
 
@@ -63,25 +64,12 @@
         </Style>
 
     </Window.Styles>
-    <Grid Classes="MsBoxStandardContainer">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" MaxHeight="150" />
-            <RowDefinition Height="15" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+    <Grid Classes="MsBoxStandardContainer" RowDefinitions="*,15,Auto" ColumnDefinitions="Auto,*">
         <!--Icon-->
         <Image Grid.Row="0" Grid.Column="0"
                IsVisible="{Binding Icon}"
                Source="{Binding ImagePath}" />
-        <Grid Grid.Row="0" Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="Auto,*">
             <!--Bold text-->
             <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}"
                      IsVisible="{Binding HasHeader}" />
